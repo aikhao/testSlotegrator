@@ -23,4 +23,10 @@ public class Constants {
 
     }
 
+    public static class Urls {
+        public static String login = "/admin/login";
+        public static String player = "/user/player/admin";
+
+    }
+
 }

@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src/test/java/com/testslotegrator/web/features"},
-        glue = {"src/main/java/com/testslotegrator/Steps" })
+        glue = {"src/main/java/com/testslotegrator/libs" })
 public class RunnerTest {
 
 }

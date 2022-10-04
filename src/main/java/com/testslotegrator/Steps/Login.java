@@ -1,16 +1,15 @@
 package com.testslotegrator.Steps;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import com.testslotegrator.helper.Constants;
+import com.testslotegrator.properties.Users;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
+import static com.testslotegrator.properties.Properties.urlFront;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
@@ -21,53 +20,30 @@ public class Login {
     static WebDriver driver;
 
     public Login() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        this.driver = Hooks.driver;
     }
 
-    @After
-    void teardown() {
-        driver.quit();
-    }
-
-
-    @Given("Navigate to Page ForgotPassword")
+    @Given("Navigate to Page Login")
     public void navigateToPageForgotPassword() {
-        driver.get("https://the-internet.herokuapp.com/forgot_password");
+        driver.get(urlFront+ Constants.Urls.login);
     }
 
-    @When("A User enters a valid email id")
-    public void aUserEntersAValidEmailId() {
-        driver.findElement(By.name("email")).sendKeys("valid@example.com");
+    @When("A User enters a valid login")
+    public void aUserEntersAValidLogin() {
+        driver.findElement(By.id("UserLogin_username")).sendKeys(Users.admin.login);
     }
 
-    @And("A User clicks on Retrieve password button")
-    public void aUserClicksOnRetrievePasswordButton() {
-        driver.findElement(By.id("form_submit")).click();
+    @And("A User enters a valid password")
+    public void aUserEntersAValidPassword() {
+        driver.findElement(By.id("UserLogin_password")).sendKeys(Users.admin.password);
     }
 
-    @When("A User enters a invalid email id")
-    public void aUserEntersAInvalidEmailId() {
-        driver.findElement(By.name("email")).sendKeys("invalid@");
+    @And("A User clicks on Submit button")
+    public void aUserClicksOnSubmitButton() {
+        driver.findElement(By.cssSelector("input.btn")).click();
     }
 
-    @Then("Application shows that the email has been sent.")
-    public void applicationShowsThatTheEmailHasBeenSent() {
-        String actualMessage = driver.findElement(By.id("content")).getText();
-        assertThat(actualMessage.trim(), is("Your e-mail's been sent!"));
-    }
-
-    @Then("Application does not show that email has been sent.")
-    public void applicationDoesNotShowThatEmailHasBeenSent() {
-        String actualMessage = driver.findElement(By.id("content")).getText();
-        assertThat(actualMessage.trim(), not("Your e-mail's been sent!"));
-    }
-
-    @Given("A User Navigates to StatusCodes Page")
-    public void aUserNavigatesToStatusCodesPage() {
-        driver.navigate().to("https://the-internet.herokuapp.com/status_codes");
-    }
+    ///for delete
 
     @When("A User Clicks on status Code {int}")
     public void aUserClicksOnStatusCodeInput(Integer inputCode) {

@@ -40,6 +40,7 @@ public class UITests extends BaseTest {
         driver.findElement(By.id("UserLogin_username")).sendKeys(login);
         driver.findElement(By.id("UserLogin_password")).sendKeys(password);
         driver.findElement(By.cssSelector("input.btn")).click();
+
         assertTrue(driver.getTitle().contains("Dashboard - Casino"));
         //проверка успешного открытия
     }
