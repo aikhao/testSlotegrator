@@ -1,7 +1,5 @@
 package com.testslotegrator.properties;
 
-
-
 public class Users extends PropertiesProvider {
 
     public static User admin = new User();

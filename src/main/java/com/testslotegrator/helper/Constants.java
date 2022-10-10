@@ -11,10 +11,10 @@ public class Constants {
     public static class Colors {
         public static String rgbActiveMenuBorder = "rgb(61, 199, 149)";
     }
-
-    public static class StatusMessages {
-        public static String listDeleted = "List was deleted";
-        public static String signedIn = "You’ve been signed in, welcome back!";
+    public static class CssSelector {
+        public static final String tableColumnsWithoutFirst = "td:not(:nth-child(1))";
+        public static final String elementWithLoadTable = "div(.grid-view-loading)";
+        public static final String elementWithoutLoadTable = "div:not(.grid-view-loading)";
 
     }
 

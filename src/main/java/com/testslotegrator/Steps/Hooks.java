@@ -16,7 +16,6 @@ public class Hooks {
         driver.manage().window().maximize();
     }
 
-
     @After
     public void afterScenario(){
         driver.quit();

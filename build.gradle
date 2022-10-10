@@ -8,7 +8,7 @@ ext {
     jacksonCoreVersion = '2.10.2'
     junitVersion = '5.8.1'
     lombokVersion = '1.18.10'
-    selenideVersion = '5.12.1'
+//     selenideVersion = '5.12.1'
     slf4jVersion = '1.7.30'
     restassuredVersion = '4.3.1'
 
