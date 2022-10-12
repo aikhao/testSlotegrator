@@ -6,7 +6,7 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 
 
-import static com.testslotegrator.properties.Properties.path_api_shopping_list;
+import static com.testslotegrator.helper.Constants.UrlsApi.path_api_shopping_list;
 import static io.restassured.RestAssured.given;
 
 public class Players {

@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public class PlayerPage {
 
     public static By tablePaymentTransaction = By.id("payment-system-transaction-grid");
-    public static By inputPassword = By.id("UserLogin_password");
-    public static By buttonSubmit = By.cssSelector("input.btn");
+    public static By selectPlayerSearchStatus = By.name("PlayerSearch[status]");
+    public static By columnPlayerSearchStatus = By.cssSelector("td:nth-child(15) span");
 
 }
