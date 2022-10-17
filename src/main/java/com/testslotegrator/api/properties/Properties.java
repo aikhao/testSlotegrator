@@ -1,6 +1,4 @@
-package com.testslotegrator.properties;
-
-import org.openqa.selenium.Keys;
+package com.testslotegrator.api.properties;
 
 public class Properties extends PropertiesProvider {
 
@@ -11,4 +9,5 @@ public class Properties extends PropertiesProvider {
 
     public static String urlFront = getProperty("instance.url");
     public static String urlApi = getProperty("instance.url.api");
+    public static String keyApi = getProperty("api.key");
 }

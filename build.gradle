@@ -11,6 +11,8 @@ ext {
 //     selenideVersion = '5.12.1'
     slf4jVersion = '1.7.30'
     restassuredVersion = '4.3.1'
+        jsonValidatorVersion = '4.1.2'
+        junitPlatformVersion = '1.8.2'
 
 }
 
@@ -49,6 +51,8 @@ dependencies {
 //    implementation("io.qameta.allure:allure-selenide:$allureSelenideVersion")
     implementation("io.rest-assured:rest-assured:$restassuredVersion")
     implementation("org.slf4j:slf4j-api:$slf4jVersion")
+    implementation("io.rest-assured:json-schema-validator:$jsonValidatorVersion")
+        testImplementation("io.rest-assured:json-schema-validator:$jsonValidatorVersion")
 
 //    testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 

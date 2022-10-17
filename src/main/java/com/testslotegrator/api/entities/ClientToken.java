@@ -1,4 +1,4 @@
-package com.testslotegrator.entities;
+package com.testslotegrator.api.entities;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

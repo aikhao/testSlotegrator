@@ -1,25 +1,15 @@
-package com.testslotegrator.api;
+package com.testslotegrator.api.libs;
 
 
-import com.testslotegrator.properties.PropertiesProvider;
+import com.testslotegrator.web.properties.PropertiesProvider;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 
-import static com.testslotegrator.helper.Constants.UrlsApi.path_api_shopping_list;
+
+import static com.testslotegrator.web.helper.Constants.UrlsApi.path_api_shopping_list;
 import static io.restassured.RestAssured.given;
 
-public class Oauth2 {
-
-
-
-
-
-
-
-
-
-
-
+public class Players {
 
 //    public static ShoppingList createShoppingList(List values){
 //        return given()

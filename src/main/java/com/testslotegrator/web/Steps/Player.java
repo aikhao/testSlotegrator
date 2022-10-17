@@ -1,6 +1,7 @@
-package com.testslotegrator.Steps;
+package com.testslotegrator.web.Steps;
 
-import com.testslotegrator.helper.Constants;
+import com.testslotegrator.web.helper.Constants;
+import com.testslotegrator.web.properties.Properties;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
@@ -13,14 +14,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-import static com.testslotegrator.helper.Constants.CssSelector.elementTableBodyRows;
-import static com.testslotegrator.helper.Constants.CssSelector.elementWithoutLoadTable;
-import static com.testslotegrator.helper.Constants.XpathSelector.selectedOptionWithText;
-import static com.testslotegrator.properties.Properties.timeoutWaitStep;
-import static com.testslotegrator.properties.Properties.urlFront;
-import static com.testslotegrator.view.pages.PlayerPage.columnPlayerSearchStatus;
-import static com.testslotegrator.view.pages.PlayerPage.selectPlayerSearchStatus;
-import static com.testslotegrator.view.pages.PlayerPage.tablePaymentTransaction;
+import static com.testslotegrator.web.helper.Constants.CssSelector.elementTableBodyRows;
+import static com.testslotegrator.web.helper.Constants.CssSelector.elementWithoutLoadTable;
+import static com.testslotegrator.web.helper.Constants.XpathSelector.selectedOptionWithText;
+import static com.testslotegrator.web.view.pages.PlayerPage.columnPlayerSearchStatus;
+import static com.testslotegrator.web.view.pages.PlayerPage.selectPlayerSearchStatus;
+import static com.testslotegrator.web.view.pages.PlayerPage.tablePaymentTransaction;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 
@@ -34,13 +33,13 @@ public class Player {
 
     @Then("Application open Players page")
     public void applicationDisplaysTheMessageOutputCode() {
-        new WebDriverWait(driver, Duration.ofSeconds(timeoutWaitStep))
+        new WebDriverWait(driver, Duration.ofSeconds(Properties.timeoutWaitStep))
                 .until(ExpectedConditions.presenceOfElementLocated(tablePaymentTransaction));
     }
 
     @Given("Navigate to Page Players")
     public void navigateToPagePlayers() {
-        driver.get(urlFront + Constants.Urls.player);
+        driver.get(Properties.urlFront + Constants.Urls.player);
 
     }
 
@@ -48,7 +47,7 @@ public class Player {
     public void aSpecifySortingStatusAsNotActive(String value) {
         new Select(driver.findElement(selectPlayerSearchStatus)).selectByVisibleText(value);
 
-        new WebDriverWait(driver, Duration.ofSeconds(timeoutWaitStep))
+        new WebDriverWait(driver, Duration.ofSeconds(Properties.timeoutWaitStep))
                 .until(ExpectedConditions.presenceOfNestedElementsLocatedBy(
                         selectPlayerSearchStatus,
 //                        By.xpath("//option[@selected and text()=\""+value+"\"]")));
@@ -56,7 +55,7 @@ public class Player {
                         By.xpath(String.format(selectedOptionWithText, value)))
                 );
 
-        new WebDriverWait(driver, Duration.ofSeconds(timeoutWaitStep))
+        new WebDriverWait(driver, Duration.ofSeconds(Properties.timeoutWaitStep))
                 .until(ExpectedConditions.elementToBeClickable(By.cssSelector(elementWithoutLoadTable)));
     }
 

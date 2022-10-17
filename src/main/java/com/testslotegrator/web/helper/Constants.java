@@ -1,4 +1,4 @@
-package com.testslotegrator.helper;
+package com.testslotegrator.web.helper;
 
 public class Constants {
 

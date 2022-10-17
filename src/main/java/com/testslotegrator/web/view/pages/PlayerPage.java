@@ -1,4 +1,4 @@
-package com.testslotegrator.view.pages;
+package com.testslotegrator.web.view.pages;
 
 import org.openqa.selenium.By;
 

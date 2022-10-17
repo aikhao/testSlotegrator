@@ -1,4 +1,4 @@
-package com.testslotegrator.view.uikit;
+package com.testslotegrator.web.view.uikit;
 
 import org.openqa.selenium.By;
 

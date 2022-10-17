@@ -1,16 +1,16 @@
-package com.testslotegrator.Steps;
+package com.testslotegrator.web.Steps;
 
-import com.testslotegrator.helper.Constants;
-import com.testslotegrator.properties.Users;
+import com.testslotegrator.web.helper.Constants;
+import com.testslotegrator.web.properties.Users;
+import com.testslotegrator.web.properties.Properties;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
-import static com.testslotegrator.properties.Properties.urlFront;
-import static com.testslotegrator.view.pages.LoginPage.buttonSubmit;
-import static com.testslotegrator.view.pages.LoginPage.inputLogin;
-import static com.testslotegrator.view.pages.LoginPage.inputPassword;
+import static com.testslotegrator.web.view.pages.LoginPage.buttonSubmit;
+import static com.testslotegrator.web.view.pages.LoginPage.inputLogin;
+import static com.testslotegrator.web.view.pages.LoginPage.inputPassword;
 
 public class Login {
 
@@ -22,7 +22,7 @@ public class Login {
 
     @Given("Navigate to Page Login")
     public void navigateToPageForgotPassword() {
-        driver.get(urlFront+ Constants.Urls.login);
+        driver.get(Properties.urlFront+ Constants.Urls.login);
     }
 
     @When("A User enters a valid login")

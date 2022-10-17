@@ -1,4 +1,4 @@
-package com.testslotegrator.Steps;
+package com.testslotegrator.web.Steps;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

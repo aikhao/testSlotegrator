@@ -1,4 +1,4 @@
-package com.testslotegrator.properties;
+package com.testslotegrator.web.properties;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,4 +1,4 @@
-package com.testslotegrator.properties;
+package com.testslotegrator.web.properties;
 
 public class Users extends PropertiesProvider {
 
