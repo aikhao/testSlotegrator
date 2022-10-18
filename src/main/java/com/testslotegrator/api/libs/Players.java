@@ -1,55 +1,32 @@
 package com.testslotegrator.api.libs;
 
-
-import com.testslotegrator.web.properties.PropertiesProvider;
+import com.testslotegrator.api.entities.PlayerProfile;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
+import io.restassured.response.Response;
 
-
-import static com.testslotegrator.web.helper.Constants.UrlsApi.path_api_shopping_list;
+import static com.testslotegrator.api.helper.Constants.UrlsApi.path_api_players;
+import static com.testslotegrator.api.properties.Properties.keyApi;
 import static io.restassured.RestAssured.given;
 
 public class Players {
 
-//    public static ShoppingList createShoppingList(List values){
-//        return given()
-//                .filter(new RequestLoggingFilter())
-//                .filter(new ResponseLoggingFilter())
-//                .header("Authorization","Bearer " + PropertiesProvider.getProperty("api.key"))
-//                .header("Content-Type","application/json")
-//                .body(values)
-//                .when()
-//                .post(path_api_shopping_list)
-//                .then()
-//                .statusCode(200)
-//                .extract()
-//                .as(ShoppingList.class);
-//    }
+    public static Response createNewPlayer(PlayerProfile values) {
+        return given()
+                .filter(new RequestLoggingFilter())
+                .filter(new ResponseLoggingFilter())
+                .header("Authorization","Bearer " + keyApi)
+                .header("Content-Type","application/json")
+                .body(values)
+                .post(path_api_players);
+    }
 
-//    public static ShoppingList getShoppingList(String id){
-//        return given()
-//                .filter(new RequestLoggingFilter())
-//                .filter(new ResponseLoggingFilter())
-//                .header("Authorization","Bearer " + PropertiesProvider.getProperty("api.key"))
-//                .header("Content-Type","application/json")
-//                .when()
-//                .get(path_api_shopping_list + "/" + id)
-//                .then()
-//                .statusCode(200)
-//                .extract()
-//                .as(ShoppingList.class);
-//    }
-
-    public static void deleteShoppingList(String id) {
-        given()
-            .filter(new RequestLoggingFilter())
-            .filter(new ResponseLoggingFilter())
-            .header("Authorization","Bearer " + PropertiesProvider.getProperty("api.key"))
-            .header("Content-Type","application/json")
-            .when()
-            .delete(path_api_shopping_list + "/" + id)
-            .then()
-            .statusCode(200)
-            .extract();
+    public static Response getPlayersProfileWithId(String id) {
+        return given()
+                .filter(new RequestLoggingFilter())
+                .filter(new ResponseLoggingFilter())
+                .header("Authorization","Bearer " + keyApi)
+                .header("Content-Type","application/json")
+                .get(path_api_players + id);
     }
 }

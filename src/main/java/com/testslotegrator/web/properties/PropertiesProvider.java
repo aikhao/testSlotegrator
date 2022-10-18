@@ -10,13 +10,11 @@ public class PropertiesProvider {
     private static PropertiesProvider instance;
     private Properties properties;
     private Properties users;
-    private Properties urls;
 
     public PropertiesProvider() {
         try {
             properties = new Properties();
             users = new Properties();
-            urls = new Properties();
 
             setProperties(System.getProperties());
 
@@ -38,14 +36,6 @@ public class PropertiesProvider {
                 setUsers(users_from_file);
             } else {
                 throw new FileNotFoundException("File " + users_prop_file + " not found");
-            }
-
-            Properties urls_from_file = new Properties();
-            final File urls_prop_file = new File("urls.properties");
-
-            if (urls_prop_file.exists()) {
-                urls_from_file.load(new FileInputStream(urls_prop_file));
-                setUrls(urls_from_file);
             }
 
         } catch (Exception e) {
@@ -118,31 +108,5 @@ public class PropertiesProvider {
 
     public static void setUser(String key, String value) {
         getUsers().setProperty(key, value);
-    }
-
-    private static Properties getUrls() {
-        return getInstance().urls;
-    }
-
-    private void setUrls(Properties urls_new) {
-        urls_new.forEach(
-            (Object key, Object value) -> {
-                if (!urls.containsKey(key)) {
-                    urls.setProperty(key.toString(), value.toString());
-                }
-            }
-        );
-    }
-
-    public static String getUrl(String url){
-        if (getUrls().containsKey(url)) {
-            return getUrls().getProperty(url);
-        } else {
-            throw new IllegalArgumentException(String.format("Cannot find urls %s", url));
-        }
-    }
-
-    public static void setUrl(String key, String value){
-        getUrls().setProperty(key, value);
     }
 }

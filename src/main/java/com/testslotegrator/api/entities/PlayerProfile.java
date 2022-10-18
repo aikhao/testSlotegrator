@@ -21,6 +21,8 @@ public class PlayerProfile {
     String countryId;
     String timezoneId;
     String username;
+    String password_change;
+    String password_repeat;
     String email;
     String name;
     String surname;
